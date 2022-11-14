@@ -1,11 +1,15 @@
 #importing required libraries
 
-from flask import Flask, request, render_template
 import numpy as np
+from flask import Flask, request, jsonify, render_template
+import pickle
 import pandas as pd
 from sklearn import metrics 
 import warnings
-import pickle
+
+#importing inputScript file which is used to analyze the URL
+
+import inputScript
 warnings.filterwarnings('ignore')
 from feature import FeatureExtraction
 
@@ -13,6 +17,7 @@ file = open("model.pkl","rb")
 gbc = pickle.load(file)
 file.close()
 
+#loading model
 
 app = Flask(__name__)
 
